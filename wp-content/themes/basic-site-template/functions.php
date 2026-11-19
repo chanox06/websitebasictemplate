@@ -39,7 +39,6 @@ function clean_gutenberg_editor_assets() {
 }
 add_action( 'enqueue_block_editor_assets', 'clean_gutenberg_editor_assets' );
 
-
 /* =========================================
    FRONT-END STYLES
 ========================================= */
@@ -53,7 +52,6 @@ function basic_site_template_frontend_styles() {
         [],
         filemtime( get_theme_file_path( 'style.css' ) )
     );
-
 
     /*
      * Load pages.css on every non-home page.
@@ -72,38 +70,6 @@ function basic_site_template_frontend_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'basic_site_template_frontend_styles' );
-
-
-/* =========================================
-   FRONT-END SCRIPTS
-======================================== */
-
-function basic_site_template_frontend_scripts() {
-
-    /* WOW-style scroll reveal - homepage only */
-    if ( is_front_page() ) {
-
-        wp_enqueue_script(
-            'basic_site_template-wow-lite',
-            get_theme_file_uri( 'assets/js/wow-lite.js' ),
-            [],
-            filemtime( get_theme_file_path( 'assets/js/wow-lite.js' ) ),
-            true
-        );
-
-        /* Development notice for homepage CTAs and navigation tabs */
-        wp_enqueue_script(
-            'basic_site_template-development-modal',
-            get_theme_file_uri( 'assets/js/development-modal.js' ),
-            [],
-            filemtime( get_theme_file_path( 'assets/js/development-modal.js' ) ),
-            true
-        );
-    }
-}
-
-add_action( 'wp_enqueue_scripts', 'basic_site_template_frontend_scripts' );
-
 
 /* =========================================
    FAQ PAGE SCRIPTS
@@ -126,20 +92,37 @@ function basic_site_template_faq_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'basic_site_template_faq_scripts' );
 
+/* =========================================
+   ADMIN
+========================================= */
 
 /*
- * Flag that JavaScript is available, as early as possible.
+ * Remove the core "Fonts" screen under Appearance.
  *
- * Adds a "js" class to <html> so the WOW scroll-animation styles
- * (which keep .wow elements hidden until they animate in) never
- * hide content when JavaScript is disabled.
+ * Typography for this theme is managed in style.css (@font-face)
+ * and theme.json (font-family presets only), so the Font Library
+ * is not used and its menu entry is hidden.
  */
-function basic_site_template_js_flag() {
-    echo "<script>document.documentElement.classList.add('js');</script>\n";
+function basic_site_template_remove_fonts_menu() {
+    remove_submenu_page( 'themes.php', 'font-library.php' );
 }
 
-add_action( 'wp_head', 'basic_site_template_js_flag', 1 );
+add_action( 'admin_menu', 'basic_site_template_remove_fonts_menu', 999 );
 
+/*
+ * Removing the menu entry leaves the screen reachable by URL,
+ * so send direct requests back to the dashboard.
+ */
+function basic_site_template_block_fonts_screen() {
+    global $pagenow;
+
+    if ( 'font-library.php' === $pagenow ) {
+        wp_safe_redirect( admin_url( 'themes.php' ) );
+        exit;
+    }
+}
+
+add_action( 'admin_init', 'basic_site_template_block_fonts_screen' );
 
 /* =========================================================
    CONTACT FORM
@@ -184,7 +167,6 @@ require_once get_theme_file_path( 'forms/contact-us.php' );
 require_once get_theme_file_path( 'forms/set-an-appointment.php' );
 require_once get_theme_file_path( 'forms/careers.php' );
 
-
 /* =========================================
    CUSTOM WORDPRESS LOGIN LOGO
 ========================================= */
@@ -205,7 +187,6 @@ function wpadmin_custom_login_logo() {
     <?php
 }
 add_action( 'login_enqueue_scripts', 'wpadmin_custom_login_logo' );
-
 
 /* Change login logo link */
 function wpadmin_login_logo_url() {

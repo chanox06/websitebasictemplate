@@ -3,7 +3,7 @@
     overflow-x: hidden;
     color: var(--wp--preset--color--text, #27364a);
     background: var(--wp--preset--color--surface, #ffffff);
-    font-family: var(--wp--preset--font-family--poppins, 'Poppins Regular', Arial, sans-serif);
+    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
     font-size: var(--wp--preset--font-size--medium, 1rem);
     line-height: 1.6;
 }
@@ -22,13 +22,13 @@
     max-width: none;
 }
 
-.editor-styles-wrapper .clean-header {
+.editor-styles-wrapper .pincoder-block-header {
     border-bottom: 1px solid var(--wp--preset--color--border, #e5e7eb);
 }
 
 .editor-styles-wrapper #header-navigation,
 .editor-styles-wrapper #banner-area {
-    font-family: 'Poppins Regular', Arial, sans-serif;
+    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
 }
 
 .editor-styles-wrapper #header-navigation .pincoder-client-logo img {
@@ -45,10 +45,17 @@
 .editor-styles-wrapper #banner-area .hero-title,
 .editor-styles-wrapper #banner-area .hero-description,
 .editor-styles-wrapper #banner-area .hero-actions {
-    width: 42%;
-    max-width: 560px;
+    max-width: 100%;
     margin-left: 0;
     margin-right: auto;
+}
+
+.editor-styles-wrapper #banner-area .hero-title {
+    max-width: 20ch;
+}
+
+.editor-styles-wrapper #banner-area .hero-description {
+    max-width: 60ch;
 }
 
 .editor-styles-wrapper #banner-area .hero-title,
@@ -56,14 +63,15 @@
 .editor-styles-wrapper h2,
 .editor-styles-wrapper h3,
 .editor-styles-wrapper h4 {
-    font-family: 'Poppins ExtraBold', Arial, sans-serif;
+    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
+    font-weight: 800;
 }
 
 .editor-styles-wrapper #banner-area .hero-actions .wp-block-button__link {
     min-width: 170px;
     padding: 14px 30px;
     border-radius: 999px;
-    font-family: 'Poppins Regular', Arial, sans-serif;
+    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
 }
 
 .editor-styles-wrapper #header-navigation {
@@ -74,7 +82,7 @@
     box-sizing: border-box;
 }
 
-.editor-styles-wrapper .clean-header__inner {
+.editor-styles-wrapper .pincoder-block-header__inner {
     min-height: 76px;
     padding-block: var(--wp--preset--spacing--sm, 0.75rem);
 }
@@ -90,13 +98,7 @@
 
 .editor-styles-wrapper .clean-section {
     box-sizing: border-box;
-    padding-block: clamp(3.5rem, 8vw, 7rem);
-}
-
-.editor-styles-wrapper .clean-hero {
-    min-height: 540px;
-    display: flex;
-    align-items: center;
+    padding-block: clamp(3.25rem, 7vw, 6rem);
 }
 
 .editor-styles-wrapper .clean-card {
@@ -129,7 +131,7 @@
 }
 
 @media (max-width: 781px) {
-    .editor-styles-wrapper .clean-header__inner {
+    .editor-styles-wrapper .pincoder-block-header__inner {
         min-height: 64px;
     }
 

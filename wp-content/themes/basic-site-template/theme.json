@@ -100,32 +100,12 @@
         {
           "slug": "poppins",
           "fontFamily": "Poppins, sans-serif",
-          "name": "Poppins",
-          "fontFace": [
-            {
-                "fontFamily": "Poppins",
-              "fontStyle": "normal",
-              "fontWeight": "100 900",
-                "src": [
-                  "file:./assets/fonts/Poppins/Poppins-Regular.ttf"
-              ]
-            }
-          ]
+          "name": "Poppins"
         },
         {
           "slug": "lora",
           "fontFamily": "Lora, serif",
-          "name": "Lora",
-          "fontFace": [
-            {
-              "fontFamily": "Lora",
-              "fontStyle": "normal",
-              "fontWeight": "400 700",
-              "src": [
-                "file:./assets/fonts/Lora/Lora-VariableFont_wght.ttf"
-              ]
-            }
-          ]
+          "name": "Lora"
         }
       ],
       "fontSizes": [
