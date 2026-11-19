@@ -1,0 +1,56 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","className":"clean-search","layout":{"type":"default"}} -->
+<main class="wp-block-group alignfull clean-search">
+	<!-- wp:group {"align":"wide","className":"clean-search__inner","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide clean-search__inner">
+		<!-- wp:paragraph {"align":"center","className":"clean-search__eyebrow"} -->
+		<p class="has-text-align-center clean-search__eyebrow">Search the site</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:query-title {"type":"search","textAlign":"center","className":"clean-search__title"} /-->
+
+		<!-- wp:group {"className":"clean-search__form","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group clean-search__form">
+			<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search for a page…","buttonText":"Search","buttonUseIcon":false} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":1,"query":{"inherit":true,"perPage":10},"className":"clean-search__results"} -->
+		<div class="wp-block-query clean-search__results">
+			<!-- wp:post-template {"className":"clean-search__list"} -->
+				<!-- wp:group {"className":"clean-search__item","layout":{"type":"default"}} -->
+				<div class="wp-block-group clean-search__item">
+					<!-- wp:post-title {"isLink":true,"level":2,"className":"clean-search__item-title"} /-->
+					<!-- wp:post-excerpt {"excerptLength":32,"className":"clean-search__item-excerpt"} /-->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:group {"className":"clean-search__empty","layout":{"type":"constrained"}} -->
+				<div class="wp-block-group clean-search__empty">
+					<!-- wp:heading {"textAlign":"center","level":2,"className":"clean-search__empty-title"} -->
+					<h2 class="wp-block-heading has-text-align-center clean-search__empty-title">No results found</h2>
+					<!-- /wp:heading -->
+					<!-- wp:paragraph {"align":"center","className":"clean-search__empty-text"} -->
+					<p class="has-text-align-center clean-search__empty-text">We couldn't find anything for that search. Try a different keyword, or head back to the homepage.</p>
+					<!-- /wp:paragraph -->
+					<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"className":"clean-search__empty-actions"} -->
+					<div class="wp-block-buttons clean-search__empty-actions">
+						<!-- wp:button {"className":"clean-search__btn-primary"} -->
+						<div class="wp-block-button clean-search__btn-primary"><a class="wp-block-button__link wp-element-button" href="/">Back to home</a></div>
+						<!-- /wp:button -->
+					</div>
+					<!-- /wp:buttons -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:query-no-results -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

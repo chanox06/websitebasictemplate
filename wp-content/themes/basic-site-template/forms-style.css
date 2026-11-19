@@ -1,0 +1,396 @@
+/* =========================================================
+   FORMS STYLES
+   Styles for on-site forms (currently the Contact form
+   rendered by the [bst_contact_form] shortcode).
+
+   Self-contained: everything is scoped under .bst-form*,
+   so it never leaks into other theme components.
+   The forms/ PHP framework is intentionally not loaded;
+   this stylesheet only styles the markup that is output.
+========================================================= */
+
+.bst-form {
+    --bst-primary: var(--wp--preset--color--primary, #0B2240);
+    --bst-accent: var(--wp--preset--color--accent, #B8862A);
+    --bst-text: var(--wp--preset--color--text, #3F4A57);
+    --bst-heading: var(--wp--preset--color--heading, #0B2240);
+    --bst-surface: var(--wp--preset--color--surface, #FFFFFF);
+    --bst-light: var(--wp--preset--color--light, #F4F1EA);
+    --bst-border: var(--wp--preset--color--border, #E5E7EB);
+    --bst-muted: var(--wp--preset--color--muted, #64748B);
+
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: auto;
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    background: var(--bst-surface);
+    border: 1px solid var(--bst-border);
+    border-radius: 1rem;
+    box-shadow: 0 18px 45px rgba(11, 34, 64, 0.08);
+    font-family: var(--wp--preset--font-family--poppins, 'Poppins Regular', Arial, sans-serif);
+    color: var(--bst-text);
+}
+
+.bst-form *,
+.bst-form *::before,
+.bst-form *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- Header ---------- */
+
+.bst-form__header {
+    margin-bottom: 1.75rem;
+}
+
+.bst-form__kicker {
+    display: inline-block;
+    margin-bottom: 0.65rem;
+    padding: 0.3rem 0.85rem;
+    background: var(--bst-light);
+    border-radius: 999px;
+    color: var(--bst-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.bst-form__title {
+    margin: 0 0 0.65rem;
+    color: var(--bst-heading);
+    font-family: 'Poppins ExtraBold', var(--wp--preset--font-family--poppins, sans-serif);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    line-height: 1.15;
+}
+
+.bst-form__intro {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--bst-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ---------- Layout grid ---------- */
+
+.bst-form__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.bst-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bst-form__field--full {
+    grid-column: 1 / -1;
+}
+
+/* ---------- Labels & required marker ---------- */
+
+.bst-form__field label {
+    color: var(--bst-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.bst-form__req {
+    color: var(--bst-accent);
+}
+
+.bst-form__note {
+    margin: 0;
+    color: var(--bst-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Standalone field label (used by radio groups that cannot use a <label for>). */
+.bst-form__label {
+    color: var(--bst-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ---------- Radio groups ---------- */
+
+.bst-form__radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    padding-top: 0.15rem;
+}
+
+.bst-form__radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--bst-text);
+    font-size: 0.9rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.bst-form__radio input[type="radio"] {
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--bst-primary);
+}
+
+/* ---------- Inputs ---------- */
+
+.bst-form input[type="text"],
+.bst-form input[type="email"],
+.bst-form input[type="tel"],
+.bst-form input[type="date"],
+.bst-form input[type="time"],
+.bst-form select,
+.bst-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: #fff;
+    border: 1px solid var(--bst-border);
+    border-radius: 0.55rem;
+    color: var(--bst-text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bst-form input::placeholder,
+.bst-form textarea::placeholder {
+    color: #9aa5b1;
+}
+
+.bst-form input:focus,
+.bst-form select:focus,
+.bst-form textarea:focus {
+    outline: none;
+    border-color: var(--bst-accent);
+    box-shadow: 0 0 0 3px rgba(184, 134, 42, 0.18);
+}
+
+.bst-form textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+/* ---------- Consent row ---------- */
+
+.bst-form__consent {
+    margin-top: 1.25rem;
+}
+
+.bst-form__consent label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: var(--bst-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.bst-form__consent input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-top: 0.15rem;
+    accent-color: var(--bst-primary);
+}
+
+/* ---------- reCAPTCHA ---------- */
+
+.bst-form__captcha {
+    margin-top: 1.25rem;
+}
+
+.bst-form__captcha .g-recaptcha {
+    display: inline-block;
+}
+
+/* ---------- Submit ---------- */
+
+.bst-form__actions {
+    margin-top: 1.5rem;
+}
+
+.bst-form__submit {
+    display: inline-block;
+    min-width: 200px;
+    padding: 0.9rem 2rem;
+    background: var(--bst-primary);
+    border: 2px solid var(--bst-primary);
+    border-radius: 999px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.bst-form__submit:hover,
+.bst-form__submit:focus {
+    background: var(--bst-accent);
+    border-color: var(--bst-accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ---------- Alerts ---------- */
+
+.bst-form__alert {
+    margin-bottom: 1.25rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 0.55rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.bst-form__alert--success {
+    background: #e9f7ef;
+    border: 1px solid #bfe6cf;
+    color: #1c6b3d;
+}
+
+.bst-form__alert--error {
+    background: #fdeaea;
+    border: 1px solid #f5c2c2;
+    color: #9d2b2b;
+}
+
+/* ---------- Location map ---------- */
+
+.bst-map {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem auto 0;
+    border: 1px solid #E5E7EB;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(11, 34, 64, 0.08);
+}
+
+.bst-map iframe {
+    display: block;
+    width: 100%;
+    height: clamp(280px, 45vw, 450px);
+    border: 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+    .bst-form__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .bst-form__submit {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bst-form input,
+    .bst-form select,
+    .bst-form textarea,
+    .bst-form__submit {
+        transition: none !important;
+    }
+
+    .bst-form__submit:hover,
+    .bst-form__submit:focus {
+        transform: none;
+    }
+}
+
+/* =========================================================
+   CAREERS APPLICATION FORM
+   Extra structure for the long online job application form
+   rendered by the [bst_careers_form] shortcode.
+========================================================= */
+
+.bst-form--careers {
+    max-width: 960px;
+}
+
+/* ---------- Fieldset sections ---------- */
+
+.bst-form__section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.bst-form__section + .bst-form__section {
+    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--bst-border);
+}
+
+.bst-form__section-title {
+    display: block;
+    width: 100%;
+    margin: 0 0 1.1rem;
+    padding: 0;
+    color: var(--bst-primary);
+    font-family: 'Poppins ExtraBold', var(--wp--preset--font-family--poppins, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Stacked grids inside one section (e.g. experience + license) */
+
+.bst-form__grid + .bst-form__grid {
+    margin-top: 1.25rem;
+}
+
+/* ---------- File input ---------- */
+
+.bst-form input[type="file"] {
+    padding: 0.7rem 0.85rem;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.bst-form input[type="file"]::file-selector-button {
+    margin-right: 0.85rem;
+    padding: 0.55rem 1.1rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--bst-primary);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Keep hidden conditional blocks hidden even with flex/grid display rules. */
+
+.bst-form__license[hidden],
+.bst-form__license-note[hidden] {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .bst-form__section + .bst-form__section {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+}
+

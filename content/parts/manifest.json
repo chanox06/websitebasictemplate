@@ -1,0 +1,50 @@
+[
+    {
+        "slug": "banner",
+        "title": "Banner",
+        "status": "publish",
+        "area": "uncategorized",
+        "source_id": 20,
+        "file": "banner.html"
+    },
+    {
+        "slug": "footer",
+        "title": "footer",
+        "status": "publish",
+        "area": "uncategorized",
+        "source_id": 71,
+        "file": "footer.html"
+    },
+    {
+        "slug": "header",
+        "title": "header",
+        "status": "publish",
+        "area": "uncategorized",
+        "source_id": 9,
+        "file": "header.html"
+    },
+    {
+        "slug": "main-content-1",
+        "title": "Main Content 1",
+        "status": "publish",
+        "area": "uncategorized",
+        "source_id": 37,
+        "file": "main-content-1.html"
+    },
+    {
+        "slug": "main-content-2",
+        "title": "Main Content 2",
+        "status": "publish",
+        "area": "uncategorized",
+        "source_id": 49,
+        "file": "main-content-2.html"
+    },
+    {
+        "slug": "sub-footer-content",
+        "title": "Sub Footer Content",
+        "status": "publish",
+        "area": "uncategorized",
+        "source_id": 57,
+        "file": "sub-footer-content.html"
+    }
+]

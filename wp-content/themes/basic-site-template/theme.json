@@ -1,0 +1,205 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": false,
+    "border": {
+      "color": false,
+      "radius": false,
+      "style": false,
+      "width": false
+    },
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#0B2240",
+          "name": "Primary"
+        },
+        {
+          "slug": "accent",
+          "color": "#B8862A",
+          "name": "Accent"
+        },
+        {
+          "slug": "text",
+          "color": "#3F4A57",
+          "name": "Text"
+        },
+        {
+          "slug": "heading",
+          "color": "#0B2240",
+          "name": "Heading"
+        },
+        {
+          "slug": "surface",
+          "color": "#FFFFFF",
+          "name": "Surface"
+        },
+        {
+          "slug": "light",
+          "color": "#F4F1EA",
+          "name": "Light"
+        },
+        {
+          "slug": "muted",
+          "color": "#64748B",
+          "name": "Muted"
+        },
+        {
+          "slug": "border",
+          "color": "#E5E7EB",
+          "name": "Border"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "1320px",
+      "wideSize": "1600px"
+    },
+    "spacing": {
+      "defaultSpacingSizes": false,
+      "spacingSizes": [
+        {
+          "slug": "xs",
+          "size": "0.5rem",
+          "name": "Extra Small"
+        },
+        {
+          "slug": "sm",
+          "size": "0.75rem",
+          "name": "Small"
+        },
+        {
+          "slug": "md",
+          "size": "1.5rem",
+          "name": "Medium"
+        },
+        {
+          "slug": "lg",
+          "size": "3rem",
+          "name": "Large"
+        },
+        {
+          "slug": "xl",
+          "size": "5rem",
+          "name": "Extra Large"
+        },
+        {
+          "slug": "xxl",
+          "size": "7rem",
+          "name": "Extra Extra Large"
+        }
+      ]
+    },
+    "typography": {
+      "defaultFontSizes": false,
+      "fontFamilies": [
+        {
+          "slug": "poppins",
+          "fontFamily": "Poppins, sans-serif",
+          "name": "Poppins",
+          "fontFace": [
+            {
+                "fontFamily": "Poppins",
+              "fontStyle": "normal",
+              "fontWeight": "100 900",
+                "src": [
+                  "file:./assets/fonts/Poppins/Poppins-Regular.ttf"
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "lora",
+          "fontFamily": "Lora, serif",
+          "name": "Lora",
+          "fontFace": [
+            {
+              "fontFamily": "Lora",
+              "fontStyle": "normal",
+              "fontWeight": "400 700",
+              "src": [
+                "file:./assets/fonts/Lora/Lora-VariableFont_wght.ttf"
+              ]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.875rem",
+          "name": "Small"
+        },
+        {
+          "slug": "medium",
+          "size": "1rem",
+          "name": "Medium"
+        },
+        {
+          "slug": "large",
+          "size": "1.25rem",
+          "name": "Large"
+        },
+        {
+          "slug": "x-large",
+          "size": "clamp(1.75rem, 3vw, 2.75rem)",
+          "name": "Extra Large"
+        },
+        {
+          "slug": "xx-large",
+          "size": "clamp(2.5rem, 5vw, 4.5rem)",
+          "name": "Extra Extra Large"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|surface",
+      "text": "var:preset|color|text"
+    },
+    "spacing": {
+      "blockGap": "var:preset|spacing|md"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|poppins",
+      "lineHeight": "1.75"
+    },
+    "elements": {
+      "heading": {
+        "color": {
+          "text": "var:preset|color|heading"
+        },
+        "typography": {
+          "fontFamily": "var:preset|font-family|poppins",
+          "fontWeight": "800",
+          "lineHeight": "1.08"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var:preset|color|primary",
+          "text": "var:preset|color|surface"
+        },
+        "spacing": {
+          "padding": {
+            "top": "0.875rem",
+            "right": "1.5rem",
+            "bottom": "0.875rem",
+            "left": "1.5rem"
+          }
+        },
+        "typography": {
+          "fontFamily": "var:preset|font-family|poppins",
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.04em"
+        }
+      }
+    }
+  }
+}

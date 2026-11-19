@@ -1,0 +1,25 @@
+# Local WordPress configuration and secrets
+wp-config.php
+.env
+.env.*
+
+# Runtime content and generated files
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-*/
+wp-content/backups-dup-lite/
+wp-content/ai1wm-backups/
+wp-content/debug.log
+*.log
+
+# Local development artifacts
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+*.swp
+node_modules/
+vendor/
+
+# Redundant archive stored beside the active theme
+wp-content/themes/pincoderthemes.zip

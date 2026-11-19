@@ -1,0 +1,7 @@
+{
+    "slug": "wp-global-styles-basic-site-template",
+    "title": "Custom Styles",
+    "status": "publish",
+    "source_id": 5,
+    "content": "{\"version\": 3, \"isGlobalStylesUserThemeJSON\": true }"
+}
