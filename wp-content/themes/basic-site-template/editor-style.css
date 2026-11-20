@@ -1,20 +1,20 @@
 /* Editor-only rules that keep Gutenberg close to the public frontend. */
 .editor-styles-wrapper {
     overflow-x: hidden;
-    color: var(--wp--preset--color--text, #27364a);
-    background: var(--wp--preset--color--surface, #ffffff);
-    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
+    color: var(--bst-color-text, var(--wp--preset--color--text, #3F4A57));
+    background: var(--bst-color-surface, var(--wp--preset--color--surface, #FFFFFF));
+    font-family: var(--bst-font-body, var(--wp--preset--font-family--poppins, Arial, sans-serif));
     font-size: var(--wp--preset--font-size--medium, 1rem);
     line-height: 1.6;
 }
 
 .editor-styles-wrapper .wp-block {
-    max-width: var(--wp--style--global--content-size, 1200px);
+    max-width: var(--bst-content-width, var(--wp--style--global--content-size, 1320px));
 }
 
 .editor-styles-wrapper .wp-block[data-align="wide"],
 .editor-styles-wrapper .alignwide {
-    max-width: var(--wp--style--global--wide-size, 1440px);
+    max-width: var(--bst-wide-width, var(--wp--style--global--wide-size, 1600px));
 }
 
 .editor-styles-wrapper .alignfull {
@@ -23,12 +23,12 @@
 }
 
 .editor-styles-wrapper .pincoder-block-header {
-    border-bottom: 1px solid var(--wp--preset--color--border, #e5e7eb);
+    border-bottom: 1px solid var(--bst-color-border, var(--wp--preset--color--border, #E5E7EB));
 }
 
 .editor-styles-wrapper #header-navigation,
 .editor-styles-wrapper #banner-area {
-    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
+    font-family: var(--bst-font-body, var(--wp--preset--font-family--poppins, Arial, sans-serif));
 }
 
 .editor-styles-wrapper #header-navigation .pincoder-client-logo img {
@@ -63,15 +63,15 @@
 .editor-styles-wrapper h2,
 .editor-styles-wrapper h3,
 .editor-styles-wrapper h4 {
-    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
+    font-family: var(--bst-font-heading, var(--wp--preset--font-family--poppins, Arial, sans-serif));
     font-weight: 800;
 }
 
 .editor-styles-wrapper #banner-area .hero-actions .wp-block-button__link {
     min-width: 170px;
-    padding: 14px 30px;
-    border-radius: 999px;
-    font-family: var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif);
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--bst-radius-pill, 999px);
+    font-family: var(--bst-font-body, var(--wp--preset--font-family--poppins, 'Poppins', Arial, sans-serif));
 }
 
 .editor-styles-wrapper #header-navigation {
@@ -98,16 +98,16 @@
 
 .editor-styles-wrapper .clean-section {
     box-sizing: border-box;
-    padding-block: clamp(3.25rem, 7vw, 6rem);
+    padding-block: var(--bst-section-space, clamp(3.25rem, 7vw, 6rem));
 }
 
 .editor-styles-wrapper .clean-card {
     height: 100%;
     box-sizing: border-box;
-    padding: var(--wp--preset--spacing--lg, 3rem);
-    border: 1px solid var(--wp--preset--color--border, #e5e7eb);
-    border-radius: 1rem;
-    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border: 1px solid var(--bst-color-border, var(--wp--preset--color--border, #E5E7EB));
+    border-radius: var(--bst-radius, 1rem);
+    box-shadow: var(--bst-shadow, 0 18px 45px rgba(11, 34, 64, 0.08));
 }
 
 .editor-styles-wrapper .clean-placeholder {
@@ -115,15 +115,15 @@
     display: grid;
     place-items: center;
     box-sizing: border-box;
-    padding: var(--wp--preset--spacing--lg, 3rem);
-    border: 2px dashed var(--wp--preset--color--border, #e5e7eb);
-    border-radius: 1rem;
-    color: var(--wp--preset--color--muted, #64748b);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border: 2px dashed var(--bst-color-border, var(--wp--preset--color--border, #E5E7EB));
+    border-radius: var(--bst-radius, 1rem);
+    color: var(--bst-color-muted, var(--wp--preset--color--muted, #64748B));
     text-align: center;
 }
 
 .editor-styles-wrapper .clean-footer {
-    border-top: 1px solid var(--wp--preset--color--border, #e5e7eb);
+    border-top: 1px solid var(--bst-color-border, var(--wp--preset--color--border, #E5E7EB));
 }
 
 .editor-styles-wrapper .wp-block-button__link {

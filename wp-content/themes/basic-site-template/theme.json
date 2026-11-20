@@ -147,7 +147,7 @@
     },
     "typography": {
       "fontFamily": "var:preset|font-family|poppins",
-      "lineHeight": "1.75"
+      "lineHeight": "1.6"
     },
     "elements": {
       "heading": {
@@ -167,17 +167,16 @@
         },
         "spacing": {
           "padding": {
-            "top": "0.875rem",
-            "right": "1.5rem",
-            "bottom": "0.875rem",
-            "left": "1.5rem"
+            "top": "0.8rem",
+            "right": "1.6rem",
+            "bottom": "0.8rem",
+            "left": "1.6rem"
           }
         },
         "typography": {
           "fontFamily": "var:preset|font-family|poppins",
-          "fontWeight": "700",
-          "textTransform": "uppercase",
-          "letterSpacing": "0.04em"
+          "fontWeight": "600",
+          "letterSpacing": "0.01em"
         }
       }
     }
