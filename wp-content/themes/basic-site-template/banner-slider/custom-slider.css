@@ -1,0 +1,240 @@
+/**
+ * Banner Slider - front-end styles.
+ *
+ * The bundled skitter.css provides the structural styles. These overrides make
+ * the slider full-width, responsive, and consistent with the theme.
+ */
+
+/* ---------- Wrapper ---------- */
+
+.banner-slider-shell {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	top: 23px;
+	height: 100%;
+}
+
+/* The homepage hero slider fills the full right-hand banner column. */
+.home-hero {
+	top: 0;
+	width: 100%;
+	max-width: none;
+}
+
+.home-hero .banner-slider.skitter {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+}
+
+.home-hero .banner-slider .image_main,
+.home-hero .banner-slider .box_clone img {
+	object-fit: cover;
+	object-position: center;
+}
+
+.banner-slider.skitter {
+	position: relative;
+	width: 100%;
+	max-width: none;
+	height: auto !important;
+	aspect-ratio: var(--banner-slider-aspect, 1920 / 700);
+	margin: 0;
+	overflow: hidden;
+	background: transparent;
+}
+
+/* wpautop can leave an empty paragraph inside the shortcode wrapper. */
+.banner-slider > p {
+	display: none;
+	margin: 0;
+}
+
+.banner-slider.with-dots {
+	margin-bottom: 0;
+}
+
+.banner-slider .container_skitter,
+.banner-slider .image {
+	width: 100%;
+	height: 100%;
+}
+
+.banner-slider .image > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.banner-slider .image_main {
+	display: block;
+	width: 100% !important;
+	height: 100% !important;
+	/* Slides may have different aspect ratios; contain avoids clipping or
+	   stretching them when the slider height follows the first slide. */
+	object-fit: contain;
+	object-position: center bottom;
+}
+
+.banner-slider .box_clone img {
+	display: block;
+	max-width: none;
+	width: var(--banner-slider-width, auto) !important;
+	height: var(--banner-slider-height, auto) !important;
+	object-fit: contain;
+	object-position: center bottom;
+}
+
+/* ---------- Arrows ---------- */
+
+.banner-slider .prev_button,
+.banner-slider .next_button {
+	width: 48px;
+	height: 48px;
+	overflow: hidden;
+	text-indent: -9999em;
+	background-color: rgba(11, 34, 64, 0.55);
+	background-image: none;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	border-radius: 50%;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+	transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.banner-slider .prev_button::before,
+.banner-slider .next_button::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 11px;
+	height: 11px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+}
+
+.banner-slider .prev_button::before {
+	transform: translate(-30%, -50%) rotate(-135deg);
+}
+
+.banner-slider .next_button::before {
+	transform: translate(-70%, -50%) rotate(45deg);
+}
+
+.banner-slider .prev_button:hover,
+.banner-slider .next_button:hover,
+.banner-slider .prev_button:focus,
+.banner-slider .next_button:focus {
+	opacity: 1;
+	background-color: rgba(184, 134, 42, 0.92);
+	border-color: rgba(255, 255, 255, 0.65);
+	outline: none;
+}
+
+.banner-slider .prev_button:focus-visible,
+.banner-slider .next_button:focus-visible {
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.65);
+}
+
+/* ---------- Pagination dots ---------- */
+
+.banner-slider .info_slide_dots {
+	bottom: 20px;
+	padding: 7px 10px;
+	background: rgba(11, 34, 64, 0.45);
+	border: 1px solid rgba(255, 255, 255, 0.22);
+	border-radius: 999px;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+}
+
+.banner-slider .info_slide_dots .image_number {
+	width: 10px;
+	height: 10px;
+	margin: 0 5px 0 0;
+	background-color: rgba(255, 255, 255, 0.55);
+	border: 0;
+}
+
+.banner-slider .info_slide_dots .image_number:last-child {
+	margin-right: 0;
+}
+
+.banner-slider .info_slide_dots .image_number:hover {
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+.banner-slider .info_slide_dots .image_number.image_number_select {
+	width: 24px;
+	background-color: #b8862a;
+}
+
+.banner-slider .info_slide_dots .image_number:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 3px;
+}
+
+/* ---------- Loading / fallback ---------- */
+
+.banner-slider .skitter-spinner {
+	z-index: 160;
+}
+
+.banner-slider-notice {
+	padding: 1rem 1.25rem;
+	background: #fff7e6;
+	border: 1px solid #e7c98a;
+	border-radius: 6px;
+	color: #0b2240;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+	/* The library hides dots below 1024px; keep them available. */
+	.banner-slider .info_slide_dots {
+		display: block;
+	}
+}
+
+@media (max-width: 768px) {
+	.banner-slider .prev_button,
+	.banner-slider .next_button {
+		width: 40px;
+		height: 40px;
+	}
+
+	.banner-slider .prev_button {
+		left: 12px;
+	}
+
+	.banner-slider .next_button {
+		right: 12px;
+	}
+
+	.banner-slider .info_slide_dots {
+		bottom: 14px;
+	}
+}
+
+@media (max-width: 480px) {
+	.banner-slider .prev_button,
+	.banner-slider .next_button {
+		width: 36px;
+		height: 36px;
+	}
+
+	.banner-slider .info_slide_dots {
+		padding: 5px 8px;
+	}
+
+	.banner-slider .info_slide_dots .image_number {
+		width: 8px;
+		height: 8px;
+		margin-right: 4px;
+	}
+
+	.banner-slider .info_slide_dots .image_number.image_number_select {
+		width: 20px;
+	}
+}

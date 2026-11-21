@@ -1,0 +1,41 @@
+>>>>> LOCAL → STAGING <<<<<<
+cd D:\xampp\htdocs\_basicWebsites\samsonstyles
+php bin/export-content.php
+
+git status
+git add .
+git commit -m "Website updates"
+git push origin main
+
+Staging Pull
+export PATH="$HOME/bin:$PATH"
+git pull --rebase origin main
+
+// if git lfs pull need to be install
+git lfs install
+//then run this
+git lfs pull
+
+php bin/seed-content.php
+
+If you need the seeder's flush behavior:
+php bin/seed-content.php --flush
+
+-------------------------------------------------
+
+>>>>>> STAGING TO LOCAL <<<<<<<<
+cd /home/u512795614/domains/dct2mktg.com/public_html/stagingwebsite/samsonstyles
+export PATH="$HOME/bin:$PATH"
+php bin/export-content.php
+
+git status
+
+git add content/
+git commit -m "Export latest Gutenberg content from staging"
+git push origin main
+
+Local Pull
+git status
+git pull origin main
+
+php bin/seed-content.php

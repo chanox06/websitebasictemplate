@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once get_theme_file_path( 'inc/site-config.php' );
 require_once get_theme_file_path( 'inc/helpers/seo.php' );
+require_once get_theme_file_path( 'banner-slider/slider.php' );
 
 function clean_gutenberg_theme_setup() {
     add_theme_support( 'custom-logo', [

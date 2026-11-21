@@ -4,25 +4,9 @@
 
 Use this file for each individual internal page after the Planning Instruction and Global Setup Action have been established.
 
-Change only the page-specific values below for each new page.
-
----
-
-# Page Details
-
-**Page Name:** Set an Appointment
-
-**Local Development URL:**  
-http://localhost/_basicWebsites/samsonstyles/index.php/media-company-set-an-appointment/
-
-**Current Live Website URL:**  
-https://www.samsonstyles.com/media-company-set-an-appointment/
-
----
-
 # Action
 
-Create or redesign this internal page using the previously established Internal Pages Planning Instruction and the shared internal-page system.
+Create the WordPress page if it does not already exist, then design and populate it using the previously established Internal Pages Planning Instruction and shared internal-page system.
 
 Use:
 
@@ -34,7 +18,72 @@ Work on this page only.
 
 ---
 
-# 1. Review the Existing Page
+# 1. Create or Locate the WordPress Page
+
+Before designing the page, check whether a WordPress page with the specified slug already exists.
+
+Use the following values:
+
+**Page Name:** 
+Corporate Account
+
+**Page Slug:**  
+`luxury-transportation-corporate-account`
+
+**Local Development Base URL:**  
+http://localhost/_basicWebsites/earnesteps/luxury-transportation-corporate-account
+
+
+**Current Live Website URL: (I just add this to local since live site is broken)**  
+https://www.earnesteps.com/senior-placement-consultant-in-sacramento-california
+
+
+## If the page does not exist
+
+Create a new WordPress Page using:
+
+- Title: `Sample About Us`
+- Slug: `sample-url-about-us`
+- Status: Published
+- Content editor: Gutenberg
+- Appropriate default page template used by this theme
+
+Do not create the page as a post or custom post type.
+
+Do not create duplicate pages.
+
+## If the page already exists
+
+Use the existing page.
+
+Do not create another page with the same or similar slug.
+
+Update its content and design according to this instruction.
+
+## Page Creation Method
+
+Use the most reliable method available in the local WordPress environment.
+
+Preferred order:
+
+1. WP-CLI, if available
+2. Existing WordPress development tooling or API
+3. Direct WordPress/PHP execution using WordPress functions if necessary
+
+Avoid manually inserting records directly into the WordPress database unless there is no safer WordPress-native option.
+
+After creating the page, verify:
+
+- The page exists
+- The title is correct
+- The slug is exactly correct
+- The page is published
+- The permalink resolves correctly
+- Gutenberg can edit the page
+
+---
+
+# 2. Review the Existing Live Page
 
 Review the current live page and identify:
 
@@ -52,9 +101,49 @@ Preserve important existing client content.
 
 Do not invent unsupported business information.
 
+Do not automatically copy the old page title if the Page Details above specify a different title.
+
+The Page Details in this instruction take priority for:
+
+- New page title
+- New slug
+- New local URL
+
+The live page is primarily the content reference.
+
 ---
 
-# 2. Redesign the Local Page
+# 3. Build the Gutenberg Page Content
+
+Populate the newly created or existing WordPress page with Gutenberg-compatible content.
+
+Prefer:
+
+- Core Gutenberg blocks
+- Existing block patterns
+- Existing theme blocks
+- Existing reusable components
+
+The page content should remain editable from the WordPress Gutenberg editor.
+
+Do not create the entire page as one large Custom HTML block unless absolutely necessary.
+
+Do not hardcode editable page content into PHP templates.
+
+Use meaningful block structure for:
+
+- Headings
+- Paragraphs
+- Columns
+- Groups
+- Buttons
+- Lists
+- Forms
+- Other page sections
+
+---
+
+# 4. Redesign the Page
 
 Redesign the local page using the new homepage design system.
 
@@ -79,7 +168,7 @@ Do not force the same section structure used on other pages.
 
 ---
 
-# 3. Featured Image Banner
+# 5. Featured Image Banner
 
 Use the shared internal-page banner system.
 
@@ -89,15 +178,21 @@ Requirements:
 - Display the page title inside the banner.
 - Use the shared overlay treatment.
 - Maintain responsive behavior.
-- Leave the final image selection for manual update.
+- Image already exists on live site → fetch it and add it locally.
+
+If no Featured Image is assigned, use the shared fallback banner behavior.
 
 Do not add random stock images.
 
 ---
 
-# 4. Page Images
+# 6. Page Images
 
-Leave content images blank or ready for manual replacement unless explicitly instructed otherwise.
+Image already exists on live site → fetch it and add it locally.
+
+Image exists but is unusable → create a placeholder.
+
+New design needs an additional image → create an empty image placement for me to fill manually.
 
 Do not automatically download or insert random stock imagery.
 
@@ -105,7 +200,7 @@ Preserve placeholders or Gutenberg image areas where appropriate.
 
 ---
 
-# 5. Scroll Animations
+# 7. Scroll Animations
 
 Use the shared animation system.
 
@@ -119,9 +214,11 @@ Do not create a new animation system for this page unless the shared system requ
 
 ---
 
-# 6. CSS
+# 8. CSS
 
-Use existing global styles from `style.css`.
+Use existing global styles from:
+
+`style.css`
 
 Add or update page-specific internal-page styles in:
 
@@ -138,24 +235,7 @@ Reuse existing components and CSS variables where practical.
 
 ---
 
-# 7. Gutenberg
-
-Keep the page editable through Gutenberg.
-
-Prefer:
-
-- Core Gutenberg blocks
-- Existing block patterns
-- Existing theme blocks
-- Existing reusable components
-
-Do not hardcode editable content into PHP unless technically necessary.
-
-Do not introduce another page builder.
-
----
-
-# 8. Forms
+# 9. Forms
 
 If this page contains a form:
 
@@ -171,7 +251,7 @@ Do not redesign or rebuild the form backend unless explicitly instructed.
 
 ---
 
-# 9. Responsive Design
+# 10. Responsive Design
 
 Verify the page on:
 
@@ -194,7 +274,7 @@ Ensure:
 
 ---
 
-# 10. Scope Control
+# 11. Scope Control
 
 Do not modify unrelated pages.
 
@@ -206,10 +286,16 @@ Keep changes focused on this page.
 
 ---
 
-# 11. Completion Check
+# 12. Completion Check
 
 Before finishing, verify:
 
+- The WordPress page exists.
+- No duplicate page was created.
+- Page title is correct.
+- Page slug is exactly correct.
+- Page is published.
+- Final local URL resolves successfully.
 - Important live-page content is present.
 - Page design matches the homepage.
 - Old live-site design was not copied.
@@ -232,7 +318,12 @@ Before finishing, verify:
 
 After implementation, provide a concise report containing:
 
-- Page updated
+- Page created or updated
+- Page title
+- Page slug
+- Final local URL
+- WordPress page ID, if available
+- Publication status
 - Files modified
 - Main design improvements
 - Functional changes, if any
