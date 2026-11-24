@@ -16,8 +16,11 @@ The AI is responsible for:
 6. Keeping normal content editable through Gutenberg.
 7. Skipping complex content safely when a page requires special handling.
 8. Continuing the migration even when one page is problematic.
-9. Updating homepage, header, footer, CTA, card, and internal links after all pages have been created.
-10. Producing one final migration and special-attention report.
+9. Adding a reusable breadcrumb trail to every standard internal page.
+10. Avoiding duplicate page-title headings inside the main content when the page title is already displayed in the Featured Image banner.
+11. Updating homepage, header, footer, CTA, card, and internal links after all pages have been created.
+12. Ensuring header and footer navigation clearly indicate the current/active page using a persistent hover-like active state.
+13. Producing one final migration and special-attention report.
 
 Apply all previously established Planning and Global Setup instructions.
 
@@ -176,6 +179,26 @@ Do not reproduce unnecessary:
 
 The goal is to migrate the content, not the old frontend implementation.
 
+## Page Title Duplication Rule
+
+The page title is already displayed prominently inside the Featured Image / inner-page banner.
+
+Therefore:
+
+- Do not add the same page title again as the first heading inside the main Gutenberg content.
+- Do not begin the main content with a redundant H1 that simply repeats the page title.
+- Start the main content with the actual introductory paragraph, a meaningful section heading, or the first real content section.
+- Preserve any legitimate secondary heading from the reference page when it adds meaning and is not simply a duplicate of the page title.
+- Maintain a correct semantic heading hierarchy after removing redundant title headings.
+
+The intended structure is:
+
+**Featured Image Banner + Page Title**  
+↓  
+**Breadcrumbs**  
+↓  
+**Main content begins without repeating the page title**
+
 ---
 
 # 6. Design Direction
@@ -260,7 +283,47 @@ Do not insert random stock imagery.
 
 ---
 
-# 9. Content Images
+# 9. Breadcrumbs
+
+Add a breadcrumb trail to every standard internal page.
+
+Place breadcrumbs:
+
+- Directly below the Featured Image / inner-page banner
+- Before the main page content
+- In a consistent location across all internal pages
+
+Recommended structure:
+
+`Home > Parent Page > Current Page`
+
+Examples:
+
+`Home > About Us`
+
+`Home > Services > Transportation`
+
+Requirements:
+
+- `Home` should link to the local homepage.
+- Parent breadcrumb items should link to the correct local parent page when one exists.
+- The current page should appear as the final breadcrumb item and should not require a link.
+- Reflect the actual WordPress page hierarchy where applicable.
+- Use real WordPress-generated URLs instead of hardcoded localhost URLs when working in PHP templates.
+- Keep breadcrumbs reusable and centralized rather than manually hardcoding a different breadcrumb implementation into every page.
+- Match the website's typography, colors, spacing, hover states, and overall design language.
+- Make breadcrumbs responsive and readable on mobile.
+- Allow long breadcrumb trails to wrap cleanly without causing horizontal overflow.
+- Use appropriate semantic markup and accessibility attributes where practical.
+- Do not add a breadcrumb to the homepage itself unless the existing design specifically requires it.
+
+Prefer a lightweight theme-level breadcrumb implementation that can automatically determine page ancestors and the current page.
+
+Do not install a breadcrumb plugin solely for this requirement unless the project already depends on one.
+
+---
+
+# 10. Content Images
 
 For images contained inside the reference page:
 
@@ -306,7 +369,7 @@ Core rule:
 
 ---
 
-# 10. Forms
+# 11. Forms
 
 When a reference page contains a form:
 
@@ -333,7 +396,7 @@ If the form requires unclear or complex backend functionality, follow the Specia
 
 ---
 
-# 11. Special Handling and Skip Rules
+# 12. Special Handling and Skip Rules
 
 Do not allow one complex or problematic page to stop the migration of the rest of the website.
 
@@ -466,7 +529,7 @@ Preserve what can be migrated safely and report the rest.
 
 ---
 
-# 12. Internal Links During Migration
+# 13. Internal Links During Migration
 
 While migrating content, convert internal live-domain links to the corresponding local WordPress pages whenever those local pages already exist.
 
@@ -493,7 +556,7 @@ If a target page has not yet been created, it is acceptable to defer the final l
 
 ---
 
-# 13. Menu Structure
+# 14. Menu Structure
 
 Where the live website has a meaningful navigation hierarchy, reproduce the corresponding structure locally.
 
@@ -507,9 +570,27 @@ Use the new website's established navigation design.
 
 Do not copy obsolete menu styling from the old site.
 
+## Active Navigation State
+
+Header and footer navigation must clearly indicate the page currently being viewed.
+
+Requirements:
+
+- The active/current page navigation item should remain visually highlighted.
+- The active style should generally match or closely resemble the existing hover state so the interaction language stays consistent.
+- Do not rely on hover alone; the active state must remain visible even when the pointer is not over the item.
+- When viewing a child page, the relevant parent navigation item should also receive an active/ancestor state where appropriate.
+- Apply active states consistently to main navigation, dropdown navigation, and applicable footer navigation.
+- Preserve keyboard focus styling separately from current-page styling.
+- Do not manually hardcode an active class for only one specific page.
+
+Prefer WordPress-generated navigation state classes and APIs where available, such as current menu item, current page ancestor, and current menu ancestor states.
+
+If the theme uses custom navigation markup instead of WordPress menu output, implement a reusable URL/page-aware active-state solution.
+
 ---
 
-# 14. CSS
+# 15. CSS
 
 Use the established CSS architecture.
 
@@ -533,7 +614,7 @@ If several pages share the same pattern, create reusable styles instead of dupli
 
 ---
 
-# 15. Scroll Animations
+# 16. Scroll Animations
 
 Use the shared animation system already implemented.
 
@@ -547,7 +628,7 @@ Do not create separate animation logic for every page.
 
 ---
 
-# 16. Responsive Requirements
+# 17. Responsive Requirements
 
 Every migrated page must work correctly on:
 
@@ -570,7 +651,7 @@ Verify:
 
 ---
 
-# 17. Do Not Recreate System Templates as Pages
+# 18. Do Not Recreate System Templates as Pages
 
 Do not create normal WordPress Pages for:
 
@@ -583,7 +664,7 @@ These should continue using the shared theme templates established during the Gl
 
 ---
 
-# 18. Scope and Safety
+# 19. Scope and Safety
 
 Do not delete existing local pages simply because they are not found on the live website.
 
@@ -603,7 +684,7 @@ If a page contains functionality significantly more complex than normal page con
 
 ---
 
-# 19. Migration Order
+# 20. Migration Order
 
 Process pages in a logical order.
 
@@ -624,7 +705,7 @@ Do not stop after every page waiting for another instruction.
 
 ---
 
-# 20. Broken or Unavailable Reference Pages
+# 21. Broken or Unavailable Reference Pages
 
 If a specific live page cannot be accessed:
 
@@ -639,7 +720,7 @@ Do not let one broken reference page prevent migration of the remaining website.
 
 ---
 
-# 21. Per-Page Verification
+# 22. Per-Page Verification
 
 After processing each page, verify:
 
@@ -655,6 +736,8 @@ After processing each page, verify:
 - Images are local rather than hotlinked
 - New design matches the homepage
 - Shared banner works
+- Breadcrumbs appear below the banner and reflect the correct page hierarchy
+- The main content does not repeat the page title as a redundant opening H1/heading
 - Scroll animation uses the shared system
 - Responsive layout works
 - No horizontal overflow exists
@@ -663,7 +746,7 @@ If the page cannot be fully completed, mark it for Special Attention and continu
 
 ---
 
-# 22. Final Link and Navigation Update
+# 23. Final Link and Navigation Update
 
 Perform this section **only after all discovered internal pages have been created or processed**.
 
@@ -673,7 +756,7 @@ The purpose of this phase is to connect the completed local website together usi
 
 ---
 
-# 23. Review All Website Links
+# 24. Review All Website Links
 
 Review the complete local website for clickable elements.
 
@@ -700,7 +783,7 @@ Include:
 
 ---
 
-# 24. Link Assignment Priority
+# 25. Link Assignment Priority
 
 For every clickable element, determine the destination using the following priority.
 
@@ -770,7 +853,7 @@ Do not create unnecessary pages just to satisfy a button.
 
 ---
 
-# 25. Homepage Link Update
+# 26. Homepage Link Update
 
 After all internal pages have been created, specifically review the homepage.
 
@@ -798,7 +881,7 @@ This is primarily a URL and navigation cleanup task.
 
 ---
 
-# 26. Header Navigation
+# 27. Header Navigation
 
 Review the complete header navigation.
 
@@ -810,6 +893,9 @@ Verify:
 - Newly created pages are connected where appropriate.
 - Header CTA links correctly.
 - Parent/child relationships are correct.
+- The current page is visibly highlighted using the established active/hover-like state.
+- When viewing a child page, the applicable parent/ancestor menu item is also highlighted where appropriate.
+- Active states work without requiring pointer hover.
 - No unnecessary old live-domain links remain.
 - No empty links remain.
 
@@ -819,7 +905,7 @@ Do not copy the old website's navigation styling.
 
 ---
 
-# 27. Footer Navigation
+# 28. Footer Navigation
 
 Review the entire footer.
 
@@ -831,6 +917,8 @@ Verify:
 - Contact links work.
 - Social media links remain correct.
 - Legal/information links point to local pages when those pages exist.
+- The current page is visibly highlighted in applicable footer navigation.
+- Footer active styling matches or closely follows the established footer hover style.
 - CTA buttons work.
 - `mailto:` links are correct.
 - `tel:` links are correct.
@@ -839,7 +927,7 @@ If no valid destination exists, use `#`.
 
 ---
 
-# 28. Migrated Internal Content Links
+# 29. Migrated Internal Content Links
 
 Review links inside migrated page content.
 
@@ -859,7 +947,7 @@ Preserve legitimate external URLs.
 
 ---
 
-# 29. Special Attention Page Link Handling
+# 30. Special Attention Page Link Handling
 
 If a Special Attention page was created and has a valid local URL, decide whether navigation should link to it.
 
@@ -881,7 +969,7 @@ Do not pretend unfinished functionality works.
 
 ---
 
-# 30. Remove Invalid Placeholder Patterns
+# 31. Remove Invalid Placeholder Patterns
 
 Check for and resolve:
 
@@ -898,7 +986,7 @@ Use `#` only when no valid destination exists.
 
 ---
 
-# 31. WordPress Link Handling
+# 32. WordPress Link Handling
 
 When modifying PHP theme templates, prefer WordPress-aware URL generation where appropriate.
 
@@ -917,7 +1005,7 @@ The implementation should continue working when the website moves from localhost
 
 ---
 
-# 32. Final Website Verification
+# 33. Final Website Verification
 
 After page migration and link updates are complete, verify:
 
@@ -952,6 +1040,9 @@ After page migration and link updates are complete, verify:
 - Main navigation works.
 - Dropdown navigation works.
 - Header CTA works.
+- Current-page navigation is visibly highlighted.
+- Parent/ancestor navigation is highlighted appropriately on child pages.
+- Active styling remains visible without hover.
 
 ## Footer
 
@@ -960,9 +1051,14 @@ After page migration and link updates are complete, verify:
 - Contact links work.
 - Social links work.
 - Legal links work.
+- Applicable current-page footer navigation is visibly highlighted.
 
 ## Internal Pages
 
+- Breadcrumbs appear on every standard internal page.
+- Breadcrumb hierarchy and links are correct.
+- Breadcrumbs are positioned below the Featured Image banner and before the main content.
+- The page title is not redundantly repeated at the beginning of the main content.
 - Content links work.
 - CTA links work.
 - Cross-page links work.
@@ -1003,7 +1099,7 @@ Do not stop after merely identifying minor issues that can safely be corrected.
 
 ---
 
-# 33. Final Completion Report
+# 34. Final Completion Report
 
 Do not generate the final report until:
 
@@ -1076,6 +1172,8 @@ Report:
 - Homepage links and CTAs updated
 - Footer links updated
 - Internal page links updated
+- Breadcrumb system implemented and verified
+- Header/footer active navigation states implemented and verified
 - External links preserved
 - Special Attention pages linked or intentionally left as `#`
 - Placeholder `#` links remaining and why
